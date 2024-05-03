@@ -39,6 +39,7 @@ app.get('/', (req, res)=>{
             'function' : "delete a particular task ",
         },
     }
+    res.send(routes)
 })
 app.get('/me', authenticateToken, async(req, res)=>{
     const user = await User.findById(req.user.id).select('-password')
