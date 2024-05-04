@@ -8,7 +8,7 @@ const authenticateToken = require('./middleware/auth')
 const User = require('./models/userModel')
 
 const corsOptions = {
-    origin : 'http://localhost:3000/'
+    origin : 'http://localhost:3000'
 }
 app.use(express.json())
 app.use(cors(corsOptions))
