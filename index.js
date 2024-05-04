@@ -5,8 +5,10 @@ const todoRouter = require('./routes/todo')
 const userRouter = require('./routes/authRoute')
 const authenticateToken = require('./middleware/auth')
 const User = require('./models/userModel')
+const cors = require('cors')
 
 app.use(express.json())
+app.use(cors())
 app.get('/', (req, res)=>{
     routes = {
         '/me' : {
