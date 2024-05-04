@@ -1,14 +1,18 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
 const todoRouter = require('./routes/todo')
 const userRouter = require('./routes/authRoute')
 const authenticateToken = require('./middleware/auth')
 const User = require('./models/userModel')
-const cors = require('cors')
 
+const corsOptions = {
+    origin : 'http://localhost:3000/'
+}
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
+
 app.get('/', (req, res)=>{
     routes = {
         '/me' : {
