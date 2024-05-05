@@ -6,6 +6,7 @@ const todoRouter = require('./routes/todo')
 const userRouter = require('./routes/authRoute')
 const authenticateToken = require('./middleware/auth')
 const User = require('./models/userModel')
+require('dotenv').config()
 
 const corsOptions = {
     origin : 'http://localhost:3000'
@@ -56,6 +57,17 @@ app.use('/auth', userRouter )
 
 app.listen(3000, ()=>{console.log('server running...')})
 
-mongoose.connect('mongodb+srv://admin:admin@todoapp.rjn86t0.mongodb.net/')
-    .then(console.log('Database connection successful'))
-    .catch(console.log('Database connection failed'))
+// mongoose.connect('mongodb+srv://admin:admin@todoapp.rjn86t0.mongodb.net/')
+//     .then(console.log('Database connection successful'))
+//     .catch(console.log('Database connection failed'))
+
+const mongoURI = process.env.MONGODB_URI;
+
+
+mongoose.connect(mongoURI)
+    .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+});
