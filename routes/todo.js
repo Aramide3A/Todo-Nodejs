@@ -13,7 +13,7 @@ function Validate(task){
 }
 
 router.get('/',authenticateToken, async(req, res)=>{
-    const task = await tasks.find() 
+    const task = await tasks.find({user : req.user.id}) 
     res.send(task)
 })
 
