@@ -8,11 +8,10 @@ const authenticateToken = require('./middleware/auth')
 const User = require('./models/userModel')
 require('dotenv').config()
 
-const corsOptions = {
-    origin : 'http://localhost:3000'
-}
+app.use(cors({
+    origin: "http://localhost:3000" 
+})); 
 app.use(express.json())
-app.use(cors(corsOptions))
 
 app.get('/', (req, res)=>{
     routes = {
