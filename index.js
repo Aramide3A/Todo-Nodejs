@@ -9,7 +9,7 @@ const User = require('./models/userModel')
 require('dotenv').config()
 
 app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:3001", "https://project-1-jss5m9m5v-web-devv.vercel.app/"] 
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://project-1-jss5m9m5v-web-devv.vercel.app/", "https://project-1-jss5m9m5v-web-devv.vercel.app"] 
 })); 
 app.use(express.json())
 
